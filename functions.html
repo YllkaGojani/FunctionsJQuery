@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="utf-8">
+	<title>Functions jQuery</title>
+	<link rel="stylesheet" type="text/css" href="functionsStyle.css">
+	<script src="http://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#f1').hide();
+			console.log("form hidden");
+			$('#open').click(function(){
+				$('#f1').show();
+				console.log("Clicked Open button to show form");
+			});
+
+			$('div').first().addClass("header");
+			console.log("Added class=header to the first div.");
+
+			$('input[name=name]').first().focus(function(){
+				$(this).blur();
+				console.log("Used .focus to make it impossible to write input.");
+			});
+
+			$('input[type=tel]').attr('placeholder','+377 44/45/49 ... ...');
+			console.log("Used the .attr to add the placeholder attribute.");
+
+			$('#sUp').click(function(){
+				$('#f1').slideUp();
+				console.log("Clicked the Slide up button.");
+			});
+
+			$('#lorem').before('Some lorem ipsum text:');
+			console.log("Used .before to add text before the paragraph.");
+
+			$('#lorem').after('You want to read <b>more</b>?');
+			console.log("Used .after to add text after the paragraph.");
+
+			$('div form p').append('**important');
+			console.log("Used .append to add text after the p tag.");
+			$('#lorem2').hide();
+			$('#sDown').click(function(){
+				$('#lorem2').slideDown();
+				console.log("Clicked the Read More(Slide down) button.");
+			});
+
+			$('div').last().html('<button type="button" id="sToggle">Show or Hide</button>');
+			console.log("Used .html to add a button on the html file.");
+
+			$('#sToggle').click(function(){
+				$('#pTags').slideToggle();
+				console.log("Cliked the button to show or hide the p tags, sliding up or down.");
+			});	
+
+			$( "#valText" ).click(function() {
+			  var text = $( this ).text();
+			  $( "input[name=value]" ).val( text );
+			  console.log("Clicked the button that copies the text to input.");
+			});
+
+			$( "div" ).data( "test", { first: "Name", last: "Surname" } );
+			$( "span:first" ).text( $( "div" ).data( "test" ).first );
+			$( "span:last" ).text( $( "div" ).data( "test" ).last );
+			console.log("Used the .data to add data to a div.");
+
+			$('#toggle').click(function(){
+				$('#data #img1').toggle();
+				console.log("Clicked the button to show or hide the image.");
+			});
+			$('#fadeIn').click(function(){
+				$('#img1').fadeIn("slow");
+				console.log("Clicked the button to fade in the image.");				
+			});	
+			$('#fadeOut').click(function(){
+				$('#img1').fadeOut("slow");
+				console.log("Clicked the button to fade out the image.");				
+			});					
+		});
+ 	 	</script>
+</head>
+<body>
+	<div>
+		<h2>Form application</h2>
+		<button type="button" id="open">Open form</button>
+		<form id="f1">
+			<p>Name:<input type="text" name="name"></p>
+			<p>Surname:<input type="text" name="surname"></p>
+			<p>Phone number:<input type="tel" name="telephone"></p>
+			<button type="button" id="sUp">Click to slide up the form.</button>
+		</form>
+	</div>
+	<div id="data">
+ 		 The values stored were <span></span> and <span></span> .
+ 		 <button id="toggle">Toggle</button>
+ 		 <button id="fadeIn">Fade In</button>
+ 		 <button id="fadeOut">Fade Out</button>
+ 		 <img src="image.jpg" id="img1">	
+ 		 <img src="image2.jpg" id="img2">	
+	</div>
+	<div id="pTags">
+		<p id="lorem"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		<button id="sDown">Read more</button>
+		<p id="lorem2"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		<button id="valText">copy to h4</button>
+		<input type="text" name="value">
+	</div>
+
+	<div></div>
+</body>
+</html>
